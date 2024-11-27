@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\nqdAccountController;
-use App\Http\Controllers\DuyProfileController;
+use App\Http\Controllers\DuyPCer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,12 +99,25 @@ Route::get('/name/profile', function () {
     return "<h1> Dat ten route </h1>";
 })->name('named.prodile');
 
+Route::get('/named/display',
+       [DuyPCer::class, 'display']
+          )->name('display.profile');
+
+Route::get('/named/show',[DuyPCer::class, 'show']);
+
 #Lab2----------------------------------------
 
 #Lab3----------------------------------------
 #nqdAccountController
 Route::get('/account', [nqdAccountController::class,'index'])->name('account.index');
 
+Route::get('/nqd-account-create',[nqdAccountController::class,'create'])->name('nqd-account.create');
+
+Route::get('/nqd-account-show',[nqdAccountController::class,'showData'])->name('nqd-account.show');
+
+Route::get('/nqd-account-list',[nqdAccountController::class,'list'])->name('nqd-account.list');
+
+Route::get('/nqd-account-getall',[nqdAccountController::class,'getAllAccount'])->name('nqd-account.getallaccount');
 #nqdAccountController
 
 #Lab3----------------------------------------
