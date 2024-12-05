@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\nqdProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,19 @@ Route::get('/nqd-view3',function(){
                 'array'=> [10,13,12,1,23,31],
                 'user'=>[],
             ]);
+});
+
+Route::get('/', [nqdProductController::class,'index']);
+
+#Template Blade Layout
+Route::get('/home',function(){
+    return view('index');
+});
+    
+Route::get('/about-us',function(){
+    return view('about');
+});
+    
+Route::get('/contact',function(){
+    return view('contact');
 });
